@@ -85,6 +85,7 @@ const config = {
   plugins: [animate, typography],
   presets: [
     require("@heathmont/moon-core-tw/lib/es/private/presets/ds-moon-preset"),
+    require("./styles/js/moon-base-preset"),
   ],
 } satisfies Config;
 
