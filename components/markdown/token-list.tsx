@@ -496,11 +496,12 @@ export default function TokenTable({ tokens }: TokenTableProps) {
       tempElement.style[propertyToMeasure as any] = `var(--${token.name})`;
       let value = window.getComputedStyle(tempElement)[propertyToMeasure];
 
-      if (token.type === "color" && value.startsWith("rgb")) {
+      if (token.type === "color" && typeof value === "string" && value.startsWith("rgb")) {
         value = rgbToHex(value);
+         newValues[token.name] = value.toString() || "Not Found";
       }
 
-      newValues[token.name] = value || "Not Found";
+
     });
 
     document.body.removeChild(tempElement);
